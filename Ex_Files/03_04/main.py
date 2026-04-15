@@ -20,7 +20,9 @@ with open("laureates.csv", "r") as f:
     reader = csv.DictReader(f)
     laureates = list(reader)
 
-
+# print("\nLaureates")
+# print(laureates)
+# print(type(laureates))
 # 1. you can access parts of strings the same way you do lists
 #      hey[2] == "y"
 # 2. You can add to a list using
@@ -28,7 +30,13 @@ with open("laureates.csv", "r") as f:
 
 laureates_beginning_with_a = []
 # LinkedIn learner code here
+for laureate in laureates:
+    if laureate["name"][0] == "A":
+        laureates_beginning_with_a.append(laureate)
 
+print("Updated laureate beginning with an A")
+for word in laureates_beginning_with_a:
+    print(word["name"])
 
 with open("laureates.json", "w") as f:
     json.dump(laureates_beginning_with_a, f, indent=2)
